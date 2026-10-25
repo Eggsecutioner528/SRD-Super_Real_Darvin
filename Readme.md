@@ -49,7 +49,7 @@ Open the OSD with the button on your controller or **F12** on a keyboard. The fi
 |:-:|---|---|
 | <img src="docs/readme/icons/tv.png" height="72"> | **Video** | Separate options for HDMI and for the analog CRT output |
 | <img src="docs/readme/icons/size.png" height="72"> | **CRT Size** | 16 sizes. CRT Smoothing keeps the scaled picture even; turn it Off for plain pixels |
-| <img src="docs/readme/icons/speaker.png" height="72"> | **Sound Settings** | Master, Music and Effects volume from Off up to 200 percent (100 percent is the original mix), and a Treble option |
+| <img src="docs/readme/icons/speaker.png" height="72"> | **Sound Settings** | Master, Music and Effects volume from Off up to 200 percent (100 percent is the default mix), and a Treble option |
 | <img src="docs/readme/icons/gear.png" height="72"> | **DIP Switches** | Coinage (the World and Japan tables differ), demo sounds, flip screen, cabinet, lives (1, 3, 5 or the 28 life cheat), difficulty, bonus life, what happens after stage 10, continues, and Service Mode |
 
 ## Install

@@ -116,8 +116,9 @@ module srd_sound (
 
     // Mix after MAME's routing: YM2203 FM 0.20, each SSG channel 0.23, YM3812 0.70. Starting gains (in 1/64) are Gondomania's fit scaled by the route ratios
     // (FM 54 * 0.20 / 0.40, OPL 29 * 0.70 / 0.50, SSG 13.5 * 0.23 / 0.20); to be trimmed against a MAME recording (tools/fit_audio_gains.py).
-    localparam signed [8:0] G_FM = 9'sd28, G_OPL = 9'sd47;
-    localparam        [11:0] G_PSG = 12'd960;
+    // v1.0.1: the effects (YM2203 FM voices and SSG) are twice as loud as in v1.0.0 (FM 28 -> 56, SSG 960 -> 1920); the OSD Effects Volume now scales both.
+    localparam signed [8:0] G_FM = 9'sd56, G_OPL = 9'sd94;   // the music (YM3812) is twice as loud as in v1.0.0 too
+    localparam        [12:0] G_PSG = 13'd1920;
     // volume index -> gain in sixteenths (16 = 100 percent)
     function [5:0] gl(input [3:0] i);
         case (i)
@@ -132,13 +133,16 @@ module srd_sound (
     wire signed [6:0]  gm = $signed({1'b0, gl(vol_master)});
     wire signed [22:0] fm_p  = fm_snd  * gf;
     wire signed [22:0] opl_p = opl_snd * go;
+    wire        [15:0] psg_p = psg_snd * gl(vol_fx);
     // The levels are static, so the chain is cut into register stages (the delay of a few 48 MHz clocks does not matter): level, mix, DC blocker, master, clip.
     reg  signed [17:0] fm_l = 18'sd0, opl_l = 18'sd0;                  // (x * 16) >>> 4 = x: index 0 leaves every source untouched
+    reg  [10:0] psg_l = 11'd0;                                              // up to 1023 x 32 / 16: needs 11 bits at 200 percent
     reg  signed [19:0] mixs = 20'sd0;
-    wire signed [27:0] mix = fm_l * G_FM + opl_l * G_OPL + $signed({1'b0, psg_snd}) * $signed({1'b0, G_PSG});   // wide: the sum must not be cut before the shift
+    wire signed [27:0] mix = fm_l * G_FM + opl_l * G_OPL + $signed({1'b0, psg_l}) * $signed({1'b0, G_PSG});   // wide: the sum must not be cut before the shift
     always @(posedge clk) begin
         fm_l  <= fm_p  >>> 4;
         opl_l <= opl_p >>> 4;
+        psg_l <= psg_p >> 4;                                        // the SSG is an effect too: it follows the Effects Volume
         mixs  <= mix >>> 6;
     end
     // DC blocker (the SSG output is unsigned and its own DC removal needs seconds to settle after power on; MAME's output is centred): one pole high
