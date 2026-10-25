@@ -2,7 +2,7 @@
 
 Data East's 1987 vertical arcade shooter **Super Real Darwin**, rebuilt from scratch for the MiSTer FPGA. World and Japan versions (one MRA each), a sharp rotated picture on a CRT or HDMI, and separate volume controls for the music and the effects.
 
-> Status: first hardware boot done, in testing. Nothing here has been released yet.
+> Release 1.0.0. Tested on real MiSTer hardware: both versions boot and play with sound; the picture matches MAME pixel for pixel.
 
 ## At a glance
 
