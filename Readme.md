@@ -4,6 +4,10 @@ Data East's 1987 vertical arcade shooter **Super Real Darwin**, rebuilt from scr
 
 > Release 1.0.0. Tested on real MiSTer hardware: both versions boot and play with sound; the picture matches MAME pixel for pixel.
 
+![Super Real Darwin: the title screen and five scenes of stage 1 as the core draws them](docs/readme/gallery.png)
+
+*The title screen and stage 1, as drawn by this core (upright, scaled 2x). Super Real Darwin and its artwork are Data East's.*
+
 ## At a glance
 
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | | |
