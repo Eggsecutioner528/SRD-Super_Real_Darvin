@@ -29,7 +29,7 @@ Data East's 1987 vertical arcade shooter **Super Real Darwin**, rebuilt from scr
 | <img src="docs/readme/icons/joy.png" height="72"> | **Move** | An 8-way joystick flies your ship over the scrolling ground and sea |
 | <img src="docs/readme/icons/pad.png" height="72"> | **Two weapons** | One button fires the anti-air beam and the other the anti-ground missile, as shown at the top of the back of the flyer |
 | <img src="docs/readme/icons/trophy.png" height="72"> | **Evolution** | Collecting the items on the flyer evolves your ship: **E** (Evolution) powers it up, **Ar** (Armour) puts a barrier in front of it and **Sp** (Speed) makes it faster. The flyer says there are 12 forms in all |
-| <img src="docs/readme/icons/coin.png" height="72"> | **Coins and start** | Coin to add a credit, Start 1 or Start 2 to begin. Two players take turns |
+| <img src="docs/readme/icons/coin.png" height="72"> | **Coins and start** | Coin to add a credit, Start 1 or Start 2 to begin |
 
 ## Controls
 
